@@ -1,0 +1,23 @@
+﻿@model Student
+@{
+    ViewBag.Title = "Student Details";
+}
+
+<h1>Student Details</h1>
+
+    <div class="col-sm-8">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td>First Name:</td>
+                <td>@Model.FirstName</td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td>@Model.LastName</td>
+            </tr>
+            <tr>
+                <td>Grade:</td>
+                <td>@Model.Grade</td>
+            </tr>
+        </table>
+    </div>

@@ -1,0 +1,34 @@
+﻿@model List<Assignment>
+@{
+    ViewBag.Title = "Assignment Manager";
+}
+
+<h1>@ViewBag.Title</h1>
+    <div class="col-sm-10">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+            <th>Assignment Name</th>
+            <th>GitHub Url</th>
+            </thead>
+            <tbody>
+            @foreach (var Assignment in Model)
+            {
+                <tr>
+                    <td>@Assignment.AssignmentName</td>
+                    <td>@Assignment.GitHubUrl</td>
+                    <td>
+                        <a asp-action="Update"
+                           asp-route-id="@Assignment.AssignmentId">Update</a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete"
+                           asp-route-id="@Assignment.AssignmentId">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <a asp-action="Add" class="btn btn-primary">Add New Assignment</a>
+    </div>
+</div>

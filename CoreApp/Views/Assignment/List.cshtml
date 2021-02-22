@@ -1,0 +1,25 @@
+﻿@model List<Assignment>
+@{
+    ViewBag.Title = "Assignment";
+}
+<h1>Assignment List</h1>
+<div class="row">
+    <div class="col-sm-10">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Assignment Name</th>
+                    <th>GitHub Url</th>
+            </thead>
+            <tbody>
+                @foreach (var Assignment in Model)
+                {
+                    <tr>
+                        <td>@Assignment.AssignmentName</td>
+                        <td>@Assignment.GitHubUrl</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

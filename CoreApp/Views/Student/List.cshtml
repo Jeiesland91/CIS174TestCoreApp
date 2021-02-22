@@ -1,0 +1,62 @@
+﻿@model List<Student>
+@{
+    ViewBag.Title = "Student List";
+}
+
+@{
+    switch (@ViewBag.AccessLevel)
+    {
+        case < 2:
+            <h1>You do not have a sufficient access level to view this data.</h1>
+            break;
+        case >= 2 and < 8:
+            <div class="col-sm-10">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+    
+                    </thead>
+                    <tbody>
+                        @foreach (var Student in Model)
+                        {
+                            <tr>
+                                <td>@Student.LastName</td>
+                                <td>@Student.FirstName</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            break;
+        case > 8 and <= 10:
+            <div class="col-sm-10">
+                <h1>Hello Admin</h1>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>Grade</th>
+                    </thead>
+                    <tbody>
+                        @foreach (var Student in Model)
+                        {
+                            <tr>
+                                <td>@Student.LastName</td>
+                                <td>@Student.FirstName</td>
+                                <td>@Student.Grade</td>
+                                <td>
+                                    <a asp-controller="Student" asp-action="Details"
+                                       asp-route-id="@Student.StudentId">View Details</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            break;
+
+    }
+}

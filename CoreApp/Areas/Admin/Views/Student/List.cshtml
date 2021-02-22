@@ -1,0 +1,33 @@
+﻿@model List<Student>
+@{
+    ViewBag.Title = "Student Manager";
+}
+<div class="col-sm-10">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Grade</th>
+        </thead>
+        <tbody>
+            @foreach (var Student in Model)
+            {
+                <tr>
+                    <td>@Student.LastName</td>
+                    <td>@Student.FirstName</td>
+                    <td>@Student.Grade</td>
+                    <td>
+                        <a asp-action="Update"
+                           asp-route-id="@Student.StudentId">Update</a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete"
+                           asp-route-id="@Student.StudentId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Add" class="btn btn-primary">Add New Student</a>
+</div>

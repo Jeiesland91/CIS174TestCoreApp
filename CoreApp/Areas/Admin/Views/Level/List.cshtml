@@ -1,0 +1,33 @@
+﻿@model List<Level>
+@{
+    ViewBag.Title = "level Manager";
+}
+
+<h1>@ViewBag.Title</h1>
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th></th>
+                <th></th>
+        </thead>
+        <tbody>
+            @foreach (var level in Model)
+            {
+                <tr>
+                    <td>@level.Name</td>
+                    <td>
+                        <a asp-action="Update"
+                           asp-route-id="@level.LevelId">Update</a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete"
+                           asp-route-id="@level.LevelId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Add" class="btn btn-primary">Add New level</a>
+</div>
